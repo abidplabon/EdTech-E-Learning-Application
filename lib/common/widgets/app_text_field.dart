@@ -5,6 +5,7 @@ import 'app_shadow.dart';
 import 'image_widgets.dart';
 
 Widget appTextField({
+  TextEditingController? controller,
   String text="",
   String iconName="",
   String hintText = "Type your information",
@@ -31,7 +32,8 @@ Widget appTextField({
                 width: 280,
                 height: 50,
                 child: TextField(
-                  onChanged: (value)=>func!(value),
+                  controller: controller,
+                  onChanged: (value)=>func!(value), //catch the text written in the form
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                       hintText: hintText,

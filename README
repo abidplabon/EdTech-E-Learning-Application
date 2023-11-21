@@ -1,0 +1,20 @@
+#For making Register Screen - Setup Stage
+    a) State - For making models
+    b) Provider - For
+        void onUserNameChange(String name){
+            state = state.copyWith(username:name);
+          }
+    c) Controller -
+        SignUpController({required this.ref});.
+                        +
+        void handleSignUp(){
+            var state = ref.read(registerNotifierProvider);
+
+            String name = state.username;
+            String email = state.email;
+            }
+#For making Register Screen - Actual Page
+    a) ConsumerWidget
+    b) initState (Controller)
+    c) TextField - (value)=>ref.read(registerNotifierProvider.notifier).onUserNameChange(value)
+    d) Register Button - func: ()=>_controller.handleSignUp()

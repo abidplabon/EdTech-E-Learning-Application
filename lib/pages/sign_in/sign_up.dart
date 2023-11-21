@@ -1,4 +1,7 @@
+import 'package:edtech/common/global_loader/global_loader.dart';
+import 'package:edtech/common/values/app_colors.dart';
 import 'package:edtech/pages/sign_in/register_notifier.dart';
+import 'package:edtech/pages/sign_in/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,12 +12,27 @@ import '../../common/widgets/sign_in_widgets.dart';
 import '../../common/widgets/text_widgets.dart';
 
 
-class Signup extends ConsumerWidget {
+class Signup extends ConsumerStatefulWidget{
   const Signup({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends ConsumerState<Signup> {
+  late SignUpController _controller;
+
+  @override
+  void initState() {
+    _controller = SignUpController(ref: ref);
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final regProvider = ref.watch(registerNotifierProvider);
+    final loader = ref.watch(appLoaderProvider);
     //regProvider.copyWith();
     return Container(
       color: Colors.white,
@@ -22,7 +40,7 @@ class Signup extends ConsumerWidget {
         child: Scaffold(
           appBar: buildAppbar(text: "Register"),
           backgroundColor: Colors.white,
-          body: SingleChildScrollView(
+          body: loader == false?SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -34,21 +52,24 @@ class Signup extends ConsumerWidget {
                     text:"User name",
                     iconName:"assets/icons/user.png",
                     hintText:"Enter your user name",
-                    obscureText:false
+                    obscureText:false,
+                    func: (value)=>ref.read(registerNotifierProvider.notifier).onUserNameChange(value),
                 ),
                 const SizedBox(height: 20,),
                 appTextField(
                     text:"Email",
                     iconName:"assets/icons/user.png",
                     hintText:"Enter your email address",
-                    obscureText:false
+                    obscureText:false,
+                    func: (value)=>ref.read(registerNotifierProvider.notifier).onUserEmailChange(value),
                 ),
                 const SizedBox(height: 20,),
                 appTextField(
                     text:"Password",
                     iconName:"assets/icons/lock.png",
                     hintText:"Enter your email password",
-                    obscureText:true
+                    obscureText:true,
+                    func: (value)=>ref.read(registerNotifierProvider.notifier).onUserPasswordChange(value),
                 ),
                 const SizedBox(
                   height: 20,
@@ -57,7 +78,8 @@ class Signup extends ConsumerWidget {
                     text:"Confirm Password",
                     iconName:"assets/icons/lock.png",
                     hintText:"Confirm your password",
-                    obscureText:true
+                    obscureText:true,
+                  func: (value)=>ref.read(registerNotifierProvider.notifier).onUserrePasswordChange(value),
                 ),
                 const SizedBox(
                   height: 20,
@@ -72,14 +94,15 @@ class Signup extends ConsumerWidget {
                       buttonName:"Register",
                       isLogin:true,
                       context: context,
-                    func: (){
-
-                    }
+                    func: ()=>_controller.handleSignUp()
                   ),
                 )
               ],
             ),
-          ),
+          ):const Center(child: CircularProgressIndicator(
+            backgroundColor: Colors.blue,
+            color: AppColors.primaryElement,
+          ),),
         ),
       ),
     );
