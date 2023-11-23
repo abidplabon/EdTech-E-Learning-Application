@@ -7,6 +7,8 @@
 + git clone
 + flutter pub get
 
+  **For Apk please Go build/app/output/flutter-apk/**
+
 ![387334390_664640229034197_3165207694399782176_n](https://github.com/abidplabon/EdTech-E-Learning-Application/assets/54079464/4034f028-3a1a-4688-bc91-e2ba1e44b250)
 
 ![393091059_1083810012645903_8075375970336562878_n](https://github.com/abidplabon/EdTech-E-Learning-Application/assets/54079464/694b805c-b473-4538-a75c-3b6de8a168e6)
