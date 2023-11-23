@@ -1,11 +1,11 @@
-Authntication with Firebase
-Email: abid15@cse.pstu.ac.bd
-password: 123456
+**Authntication with Firebase**
++ Email: abid15@cse.pstu.ac.bd
++ password: 123456
 
-Installation Process:
+**Installation Process:**
 
-git clone
-flutter pub get
++ git clone
++ flutter pub get
 
 ![387334390_664640229034197_3165207694399782176_n](https://github.com/abidplabon/EdTech-E-Learning-Application/assets/54079464/4034f028-3a1a-4688-bc91-e2ba1e44b250)
 
