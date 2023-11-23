@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Flutter",
+    "time": "45 seconds",
+    "thumbnail": "assets/images/squat1.jpg",
+    "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"
+  },
+  {
+    "id": 1,
+    "title": "Flutter",
+    "time": "55 seconds",
+    "thumbnail": "assets/images/squat2.jpg",
+    "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"
+  },
+  {
+    "id": 2,
+    "title": "python",
+    "time": "60 seconds",
+    "thumbnail": "assets/images/squat3.jpg",
+    "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"
+  },
+  {
+    "id": 2,
+    "title": "python",
+    "time": "120 seconds",
+    "thumbnail": "assets/images/squat4.jpg",
+    "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"
+  },
+  {
+    "id": 3,
+    "title": "ML",
+    "time": "60 seconds",
+    "thumbnail": "assets/images/squat3.jpg",
+    "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"
+  }
+
+]

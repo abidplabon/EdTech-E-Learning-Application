@@ -46,6 +46,9 @@ dependencies:
   firebase_core: ^2.22.0
   cloud_firestore: ^4.13.2
   shared_preferences: ^2.2.2
+  get:
+  video_player:
+  confetti: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +78,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/voice/
+    - json/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

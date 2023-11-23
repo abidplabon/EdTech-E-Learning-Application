@@ -53,6 +53,7 @@ class SignUpController{
 
         toastInfo("As verification email is sent, Please open that email account to check and confirm");
         context.pop();
+        ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
       }
     }catch(e){
       if(kDebugMode){

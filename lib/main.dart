@@ -1,4 +1,6 @@
 import 'package:edtech/firebase_options.dart';
+import 'package:edtech/global.dart';
+import 'package:edtech/pages/sign_in/sign_in.dart';
 import 'package:edtech/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +8,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Global.init();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+      options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(ProviderScope(child: const MyApp()));
 }
 
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //bool deviceOpenFirstTime = Global.storageService.getDeviceFirstOpen();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

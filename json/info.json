@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Flutter Boot Camp Crash Course 2024",
+    "img": "assets/images/flutter.png",
+    "auth": "Apex"
+  },
+  {
+    "id": 2,
+    "title": "Python Beginner to Advance with Django",
+    "img": "assets/images/python.png",
+    "auth": "VivoSoft"
+  },
+  {
+    "id": 3,
+    "title": "Machine Learning with real world deployment project",
+    "img": "assets/images/ai.jpg",
+    "auth": "Next Solution"
+  },
+  {
+    "id": 4,
+    "title": "React Beginner to Advance within 8 hours",
+    "img": "assets/images/react.jpg",
+    "auth": "Ollyo"
+  },
+  {
+    "id": 5,
+    "title": "Django Rest API and Web Application",
+    "img": "assets/images/django.jpg",
+    "auth": "Relux"
+  }
+]

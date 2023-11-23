@@ -1,5 +1,7 @@
+import 'package:edtech/common/values/constants.dart';
 import 'package:edtech/common/widgets/app_shadow.dart';
 import 'package:edtech/common/widgets/text_widgets.dart';
+import 'package:edtech/global.dart';
 import 'package:edtech/pages/sign_in/sign_in.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       if (index < 3) {
         controller.animateToPage(index, duration: const Duration(microseconds: 300), curve: Curves.linear);
       } else {
+        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
         Navigator.push(
           context,
           MaterialPageRoute(

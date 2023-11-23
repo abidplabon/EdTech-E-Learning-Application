@@ -1,9 +1,14 @@
 import 'package:edtech/common/entities/user.dart';
 import 'package:edtech/common/global_loader/global_loader.dart';
+import 'package:edtech/common/values/constants.dart';
 import 'package:edtech/common/widgets/popup_messages.dart';
+import 'package:edtech/global.dart';
+import 'package:edtech/pages/dashboard/dashboard.dart';
 import 'package:edtech/pages/sign_in/sign_in_notifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SignInController{
@@ -54,10 +59,15 @@ class SignInController{
       loginRequestEntity.type = 1;
       asyncPostAllData(loginRequestEntity);
       toastInfo("User Logged In");
+
   }else{
     toastInfo("Login Error");
   }
-    }catch(e){}
+    }catch(e){
+    if(kDebugMode){
+      print(e.toString());
+    }
+  }
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
 
     }
@@ -65,5 +75,20 @@ class SignInController{
       //ref.read(appLoaderProvider.notifier).setLoaderValue(true);
 
       //ref.read(appLoaderProvider.notifier).setLoaderValue(false);
+      //store the login information
+      try{
+        var navigator = Navigator.of(ref.context);
+        Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "abid15@cse.pstu.ac.bd");
+        Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
+        navigator.push(
+          MaterialPageRoute (
+            builder: (BuildContext context) => HomePage(),
+          ),
+        );
+      }catch(e){
+        if(kDebugMode){
+          print(e.toString());
+        }
+      }
     }
   }
