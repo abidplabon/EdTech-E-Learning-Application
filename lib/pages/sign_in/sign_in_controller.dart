@@ -1,6 +1,7 @@
 import 'package:edtech/common/entities/user.dart';
 import 'package:edtech/common/global_loader/global_loader.dart';
 import 'package:edtech/common/values/constants.dart';
+import 'package:edtech/common/values/dimensions.dart';
 import 'package:edtech/common/widgets/popup_messages.dart';
 import 'package:edtech/global.dart';
 import 'package:edtech/pages/dashboard/dashboard.dart';
@@ -10,6 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../dashboard/homePage.dart';
+
 
 class SignInController{
   WidgetRef ref;
@@ -33,6 +37,10 @@ class SignInController{
     }
     if((state.password.isEmpty)|| password.isEmpty){
       toastInfo("Your password is empty");
+      return;
+    }
+    if (!RegExp(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$").hasMatch(email)) {
+      toastInfo("Enter a valid email address");
       return;
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
@@ -59,6 +67,7 @@ class SignInController{
       loginRequestEntity.type = 1;
       asyncPostAllData(loginRequestEntity);
       toastInfo("User Logged In");
+
 
   }else{
     toastInfo("Login Error");

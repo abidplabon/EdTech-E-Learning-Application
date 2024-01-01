@@ -47,7 +47,7 @@ class _SignupState extends ConsumerState<Signup> {
                 Center(
                   child: text14Normal(
                     text: "Enter your details below and free signup",  ),),
-                const SizedBox(height: 50,),
+                SizedBox(height: MediaQuery.of(context).size.height/15,),
                 appTextField(
                     text:"User name",
                     iconName:"assets/icons/user.png",
@@ -55,7 +55,7 @@ class _SignupState extends ConsumerState<Signup> {
                     obscureText:false,
                     func: (value)=>ref.read(registerNotifierProvider.notifier).onUserNameChange(value),
                 ),
-                const SizedBox(height: 20,),
+                SizedBox(height: MediaQuery.of(context).size.height/38,),
                 appTextField(
                     text:"Email",
                     iconName:"assets/icons/user.png",
@@ -63,7 +63,7 @@ class _SignupState extends ConsumerState<Signup> {
                     obscureText:false,
                     func: (value)=>ref.read(registerNotifierProvider.notifier).onUserEmailChange(value),
                 ),
-                const SizedBox(height: 20,),
+                SizedBox(height: MediaQuery.of(context).size.height/38,),
                 appTextField(
                     text:"Password",
                     iconName:"assets/icons/lock.png",
@@ -71,8 +71,8 @@ class _SignupState extends ConsumerState<Signup> {
                     obscureText:true,
                     func: (value)=>ref.read(registerNotifierProvider.notifier).onUserPasswordChange(value),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/38,
                 ),
                 appTextField(
                     text:"Confirm Password",
@@ -81,14 +81,14 @@ class _SignupState extends ConsumerState<Signup> {
                     obscureText:true,
                   func: (value)=>ref.read(registerNotifierProvider.notifier).onUserrePasswordChange(value),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/38,
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 25),
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width/16) ,
                   child: text14Normal(text:"By signing up you are agreeing to all our terms and conditions"),
                 ),
-                const SizedBox(height: 100,),
+                SizedBox(height: MediaQuery.of(context).size.height/76,),
                 Center(
                   child: appButton(
                       buttonName:"Register",

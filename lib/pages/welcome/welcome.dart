@@ -1,8 +1,12 @@
+
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:edtech/common/widgets/text_widgets.dart';
 import 'package:edtech/common/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../common/values/dimensions.dart';
 
 class Welcome extends StatefulWidget {
    Welcome({super.key});
@@ -76,7 +80,7 @@ class _WelcomeState extends State<Welcome> {
                         )
                       ),
                     ),
-                  bottom: 50,
+                  bottom: MediaQuery.of(context).size.height/15,
                 )
               ],
             ),

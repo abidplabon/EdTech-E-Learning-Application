@@ -10,7 +10,7 @@ Widget appTextField({
   String iconName="",
   String hintText = "Type your information",
   bool obscureText = false,
-  void Function(String value)? func
+  void Function(String value)? func,
 }){
   return Container(
     padding: const EdgeInsets.only(top:15,left: 25,right: 25),

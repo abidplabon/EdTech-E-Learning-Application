@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
+import '../../common/values/dimensions.dart';
 import "colors.dart" as color;
 import 'colors.dart';
 import 'congrats.dart';
@@ -33,7 +34,7 @@ class _VideoInfoState extends State<VideoInfo> {
     await DefaultAssetBundle.of(context).loadString("json/videoinfo.json").then((value){
       setState(() {
         videoInfo= json.decode(value);
-         //var x = videoInfo.where((element) => element["id"].toString()==id).toList();
+        //var x = videoInfo.where((element) => element["id"].toString()==id).toList();
         //videoInfo=x;
         //print(x);
       });
@@ -76,9 +77,9 @@ class _VideoInfoState extends State<VideoInfo> {
           child: Column(
             children: [
               _playArea==false?Container(
-                  padding: const EdgeInsets.only(top:70, left: 30, right: 30),
+                  padding: EdgeInsets.only(top:MediaQuery.of(context).size.height/10, left: MediaQuery.of(context).size.width/13, right: MediaQuery.of(context).size.width/13),
                   width: MediaQuery.of(context).size.width,
-                  height: 300,
+                  height: MediaQuery.of(context).size.height/2.5,
                   child:Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -88,66 +89,29 @@ class _VideoInfoState extends State<VideoInfo> {
                             onTap:(){
                               Navigator.pop(context);
                             },
-                            child: Icon(Icons.arrow_back_ios, size: 20,
+                            child: Icon(Icons.arrow_back_ios, size: MediaQuery.of(context).size.width/19,
                                 color:color.AppColor.secondPageIconColor),
                           ),
 
                         ],
                       ),
-                      const SizedBox(height: 30,),
-
-                      Row(
-                        children: [
-                          Container(
-                            width: 90,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    color.AppColor.secondPageContainerGradient1stColor,
-                                    color.AppColor.secondPageContainerGradient2ndColor
-                                  ],
-                                  begin: Alignment.bottomLeft,
-                                  end: Alignment.topRight,
-                                )
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.timer,
-                                  size: 20,
-                                  color:color.AppColor.secondPageIconColor,),
-                                const SizedBox(width: 5,),
-                                Text(
-                                  "",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color:color.AppColor.secondPageIconColor
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-
+                      SizedBox(height: MediaQuery.of(context).size.height/25.3,),
                     ],
                   )
               ):Container(
                 child: Column(
                   children: [
                     Container(
-                      height: 100,
-                      padding: const EdgeInsets.only(top: 50,left: 30,right: 30),
+                      height: MediaQuery.of(context).size.height/76,
+                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/15,left: MediaQuery.of(context).size.height/25.3,right: MediaQuery.of(context).size.height/25.30),
                       child: Row(
                         children: [
                           InkWell(
                             onTap: (){
-
+                              Navigator.pop(context);
                             },
                             child: Icon(Icons.arrow_back_ios,
-                              size: 20,
+                              size: MediaQuery.of(context).size.height/38,
                               color: color.AppColor.secondPageIconColor,
                             ),
                           )
@@ -160,22 +124,22 @@ class _VideoInfoState extends State<VideoInfo> {
                 ),
               ),
               Expanded(child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     color:Colors.white,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(70)
+                        topRight: Radius.circular(MediaQuery.of(context).size.height/10)
                     )
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(height: 30,),
+                    SizedBox(height: MediaQuery.of(context).size.height/25.3,),
                     Row(
                       children: [
-                        const SizedBox(width: 30,),
+                        SizedBox(width: MediaQuery.of(context).size.height/25.3,),
                         Text(
                           "VLC Media Player",
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: MediaQuery.of(context).size.height/38,
                               fontWeight: FontWeight.bold,
                               color:color.AppColor.circuitsColor
                           ),
@@ -183,9 +147,9 @@ class _VideoInfoState extends State<VideoInfo> {
                         Expanded(child: Container()),
                       ],
                     ),
-                    const SizedBox(height: 20,),
+                    SizedBox(height: MediaQuery.of(context).size.height/38,),
                     Expanded(child: ListView.builder(
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height/25.3, vertical: MediaQuery.of(context).size.width/49),
                         itemCount: videoInfo.length,
                         itemBuilder: (_,int index){
                           return GestureDetector(
@@ -199,9 +163,9 @@ class _VideoInfoState extends State<VideoInfo> {
                               });
                             },
                             child: Container(
-                              height: 135,
+                              height: MediaQuery.of(context).size.height/5,
                               //color: Colors.redAccent,
-                              width: 200,
+                              width: MediaQuery.of(context).size.width/1.96,
                               child: Column(
                                 children: [
                                   Row(
@@ -210,7 +174,7 @@ class _VideoInfoState extends State<VideoInfo> {
                                         width: 80,
                                         height: 80,
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(18),
+                                            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width/21.78),
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                     videoInfo[index]["thumbnail"]
@@ -218,21 +182,21 @@ class _VideoInfoState extends State<VideoInfo> {
                                             )
                                         ),
                                       ),
-                                      const SizedBox(width: 10,),
+                                      SizedBox(width: MediaQuery.of(context).size.height/39.2,),
                                       Column(
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             videoInfo[index]["title"],
-                                            style: const TextStyle(
-                                                fontSize: 18,
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context).size.width/24.5,
                                                 fontWeight: FontWeight.bold
                                             ),
                                           ),
                                           //const SizedBox(height: 5,),
                                           Padding(
-                                            padding: const EdgeInsets.only(top: 20),
+                                            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/36),
                                             child: Text(
                                               videoInfo[index]["time"],
                                               style: TextStyle(
@@ -244,34 +208,18 @@ class _VideoInfoState extends State<VideoInfo> {
                                       )
                                     ],
                                   ),
-                                  const SizedBox(height: 18,),
+                                  SizedBox(height: MediaQuery.of(context).size.width/40,),
                                   Row(
                                     children: [
                                       Container(
-                                        width: 80,
-                                        height: 20,
+                                        width: MediaQuery.of(context).size.width/4.9,
+                                        height: MediaQuery.of(context).size.height/36,
                                         decoration: BoxDecoration(
                                             color: const Color(0xFFeaeefc),
-                                            borderRadius: BorderRadius.circular(10)
+                                            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width/39.2)
                                         ),
                                       ),
-                                      Row(
-                                        children: [
-                                          for (int i=0; i<100; i++)
-                                            i.isEven?Container(
-                                              height: 1,
-                                              width: 3,
-                                              decoration: BoxDecoration(
-                                                  color: const Color(0xFF839fed),
-                                                  borderRadius: BorderRadius.circular(2)
-                                              ),
-                                            ):Container(
-                                              height: 1,
-                                              width: 3,
-                                              color: Colors.white,
-                                            )
-                                        ],
-                                      )
+
                                     ],
                                   )
                                 ],
@@ -343,7 +291,7 @@ class _VideoInfoState extends State<VideoInfo> {
               },
             )),
         Container(
-          height: 120,
+          height: MediaQuery.of(context).size.height/6,
           width: MediaQuery.of(context).size.width,
           color: AppColor.gradientSecond,
           child: Row(
@@ -388,8 +336,8 @@ class _VideoInfoState extends State<VideoInfo> {
                     }else{
                       Get.snackbar("Video","No more video to play",
                           snackPosition: SnackPosition.BOTTOM,
-                          icon: const Icon(Icons.face,
-                            size: 30,
+                          icon: Icon(Icons.face,
+                            size: MediaQuery.of(context).size.width/13,
                             color: Colors.white,
                           ),
                           backgroundColor: AppColor.gradientSecond,
@@ -397,9 +345,9 @@ class _VideoInfoState extends State<VideoInfo> {
                       );
                     }
                   },
-                  child: const Icon(
+                  child: Icon(
                     Icons.fast_rewind,
-                    size: 36,
+                    size: MediaQuery.of(context).size.width/10.88,
                     color: Colors.white,
                   )),
               TextButton(
@@ -418,7 +366,7 @@ class _VideoInfoState extends State<VideoInfo> {
                   },
                   child: Icon(
                     _isPlaying?Icons.pause:Icons.play_arrow,
-                    size: 36,
+                    size: MediaQuery.of(context).size.width/10.88,
                     color: Colors.white,
                   )),
               TextButton(
@@ -436,9 +384,9 @@ class _VideoInfoState extends State<VideoInfo> {
 
                     }
                   },
-                  child: const Icon(
+                  child: Icon(
                     Icons.fast_forward,
-                    size: 36,
+                    size: MediaQuery.of(context).size.height/10.89,
                     color: Colors.white,
                   )),
               Text("$mins:$secs",
@@ -469,12 +417,12 @@ class _VideoInfoState extends State<VideoInfo> {
         child: VideoPlayer(controller),
       );
     }else{
-      return const AspectRatio(
+      return AspectRatio(
         aspectRatio: 16/9,
         child: Center(
           child: Text("Preparing.......",
             style: TextStyle(
-                fontSize: 20,
+                fontSize: MediaQuery.of(context).size.width/19.6,
                 color: Colors.white60
             ),
           ),
